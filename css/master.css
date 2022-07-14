@@ -89,7 +89,7 @@ ul {
 .home .wave {
   z-index: -1;
   position: absolute;
-  bottom: -20.5%;
+  bottom: -18%;
   left: 0;
 }
 /* transition of the img */
