@@ -1,0 +1,256 @@
+:root {
+  --main-color: #0099ff;
+  --typeWriter-speed: 3s;
+  --typeWriter-delay: 2s;
+  --images-width: 400px;
+  --images-phone-width: 250px;
+  --section-padding: 200px;
+  --images-shadow: 0 0 20px 20px rgb(0 0 0 / 10%);
+}
+/* start global rules */
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+::selection {
+  background-color: var(--main-color);
+  color: white;
+}
+html {
+  scroll-behavior: smooth;
+  font-family: "Source Code Pro", monospace;
+}
+body {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* small screen */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+/* medium */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+/* large */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+/* end global rules  */
+/* start home */
+.home {
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  /* padding-bottom: 10px; */
+  z-index: 0;
+}
+.img {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(45deg, #1a5276, var(--main-color));
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.introImage {
+  width: 400px;
+  border-radius: 50%;
+  box-shadow: var(--images-shadow);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: 1s;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  z-index: 1;
+}
+.home .wave {
+  z-index: -1;
+  position: absolute;
+  bottom: -20.5%;
+  left: 0;
+}
+/* transition of the img */
+.position {
+  top: 40%;
+  left: 75%;
+  transition: 1s;
+}
+/* -------------- */
+.text {
+  margin-top: 300px;
+  width: 600px;
+  font-size: 30px;
+  z-index: -1;
+}
+.text h1 {
+  letter-spacing: 2px;
+  position: relative;
+  margin: 0;
+  width: fit-content;
+}
+.text h1::after,
+.text h1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.text h1::before {
+  background-color: white;
+  animation: typeWriter var(--typeWriter-speed) var(--typeWriter-delay) steps(8)
+    forwards;
+}
+.text h1::after {
+  background-color: black;
+  width: 5px;
+  animation: typeWriter var(--typeWriter-speed) var(--typeWriter-delay) steps(8)
+      forwards,
+    blink 300ms infinite;
+}
+.home .text p {
+  transform: translateY(4rem);
+  opacity: 0;
+  animation: fadeInUp 2s ease calc(var(--typeWriter-speed) + 2s) forwards;
+}
+.social-media {
+  display: flex;
+  gap: 20px;
+  margin-top: 180px;
+  z-index: -1;
+}
+.social-media a i {
+  font-size: 25px;
+  color: black;
+}
+.social-media a i:hover {
+  color: var(--main-color);
+}
+/* start animations */
+@keyframes typeWriter {
+  to {
+    left: 100%;
+  }
+}
+@keyframes blink {
+  to {
+    background-color: transparent;
+  }
+}
+@keyframes fadeInUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@media (max-width: 992px) {
+  .introImage {
+    width: 350px;
+    top: 35%;
+  }
+}
+@media (max-width: 768px) {
+  .home {
+    text-align: center;
+  }
+  .img {
+    height: 100%;
+  }
+  .introImage {
+    width: 250px;
+    top: 50%;
+  }
+  .position {
+    left: 50%;
+    top: 25%;
+  }
+  .text {
+    margin-top: 400px;
+    width: 100%;
+  }
+  .text h1 {
+    font-size: 40px;
+    position: absolute;
+    top: -35%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .text p {
+    font-size: 22px;
+    line-height: 2;
+  }
+  .home .wave {
+    bottom: -19.5%;
+  }
+  .social-media {
+    margin: 0;
+    justify-content: center;
+  }
+}
+/* end animations */
+/* start about */
+.about {
+  position: relative;
+  display: none;
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+.about .container {
+  display: flex;
+  justify-content: space-between;
+}
+.about .aboutImage {
+  width: var(--images-width);
+  border-radius: 50%;
+  box-shadow: var(--images-shadow);
+}
+.about .txt {
+  width: 600px;
+  line-height: 2;
+}
+.about .txt p {
+  color: #555;
+}
+@media (max-width: 768px) {
+  .about {
+    padding-top: 100px;
+    padding-bottom: 20px;
+  }
+  .about .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .about .aboutImage {
+    width: var(--images-phone-width);
+  }
+  .about .txt {
+    text-align: center;
+    width: fit-content;
+  }
+}
+/* end about */
