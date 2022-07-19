@@ -8,3 +8,4 @@ function fading() {
   $(about).toggle("display");
   $(projects).toggle("display");
 }
+

@@ -5,9 +5,25 @@
   --typeWriter-delay: 2s;
   --images-width: 400px;
   --images-phone-width: 250px;
-  --section-padding: 200px;
+  --section-padding: 100px;
   --images-shadow: 0 0 20px 20px rgb(0 0 0 / 10%);
 }
+/* scroll bar customize */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  border-radius: 30px;
+}
+::-webkit-scrollbar-track {
+  background-color: white;
+  margin-block: -10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #1a5276;
+}
+/* scroll bar customize */
 /* start global rules */
 * {
   -webkit-box-sizing: border-box;
@@ -72,7 +88,11 @@ path {
 .img {
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(45deg, #1a5276, var(--main-color));
+  background-image: linear-gradient(
+    45deg,
+    var(--second-color),
+    var(--main-color)
+  );
   position: absolute;
   top: 50%;
   left: 50%;
@@ -153,7 +173,7 @@ path {
   color: black;
 }
 .social-media a i:hover {
-  color: var(--main-color);
+  color: var(--second-color);
 }
 /* start animations */
 @keyframes typeWriter {
@@ -222,7 +242,7 @@ path {
   position: relative;
   display: none;
   padding-top: var(--section-padding);
-  /* padding-bottom: 100px; */
+  padding-bottom: var(--section-padding);
 }
 .about .container {
   display: flex;
@@ -235,11 +255,14 @@ path {
 }
 .about .txt {
   width: 600px;
+}
+.about .txt p {
+  font-size: 18px;
   line-height: 2;
 }
 .about svg {
   position: absolute;
-  bottom: -20%;
+  bottom: -10%;
 }
 @media (max-width: 768px) {
   .about {
@@ -265,13 +288,48 @@ path {
 /* end about */
 /* start projects */
 .projects {
+  position: relative;
+  text-align: center;
   display: none;
+  margin-top: 50px;
   padding-top: var(--section-padding);
-  padding-bottom: var(--section-padding);
+  padding-bottom: 50px;
 }
-.projects hr {
-  border: 1px solid var(--main-color);
-  background-color: var(--main-color);
+.projects h1 {
+  position: relative;
+  font-size: 60px;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  color: var(--main-color);
+  text-transform: uppercase;
+  letter-spacing: 20px;
+}
+.projects h1:after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: var(--second-color);
+  border-radius: 50%;
+  border: 5px solid var(--main-color);
+  top: 50%;
+  right: 20%;
+  transform: translate(0, -50%);
+  animation: jump 0.5s alternate 0.5s infinite;
+}
+.projects h1:before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: var(--second-color);
+  border-radius: 50%;
+  border: 5px solid var(--main-color);
+  top: 50%;
+  left: 20%;
+  transform: translate(0, -50%);
+  animation: jump 0.5s alternate infinite;
 }
 .projects .all {
   display: flex;
@@ -310,12 +368,29 @@ path {
 .projects .all .card:hover img {
   filter: grayscale(0);
 }
+.projects svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
 @media (max-width: 768px) {
   .projects {
     padding-top: 100px;
   }
   .projects .all .card {
     margin-bottom: 10px;
+  }
+  .projects svg {
+    display: none;
+  }
+  .projects h1 {
+    letter-spacing: 5px;
+  }
+}
+@keyframes jump {
+  to {
+    top: -50%;
   }
 }
 /* end projects */
