@@ -21,7 +21,7 @@
   border-radius: 30px;
 }
 ::-webkit-scrollbar-track {
-  background-color: white;
+  background-color: var(--white-color);
   margin-block: -10px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -106,6 +106,7 @@ path {
   right: -35px;
   width: 30px;
   height: 30px;
+  cursor: pointer;
   animation: rotation 2s linear infinite;
 }
 @keyframes rotation {
@@ -128,10 +129,10 @@ path {
 /* end theme-changer */
 /* start home */
 .home {
+  display: none;
   position: relative;
   width: 100%;
   background-color: transparent;
-  /* padding-bottom: 10px; */
   z-index: 0;
 }
 .img {
@@ -215,8 +216,9 @@ path {
   z-index: -1;
 }
 .social-media a i {
+  transition: 2s;
   font-size: 25px;
-  color: black;
+  color: var(--black-color);
 }
 .social-media a i:hover {
   color: var(--second-color);
