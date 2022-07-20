@@ -20,15 +20,25 @@
     <title>Portfolio</title>
   </head>
   <body>
-    <div class="img">
-      <!-- empty div for background color -->
-    </div>
+    <!-- start intro -->
+    <div class="img"><!-- empty div for background color --></div>
     <img
       src="imgs/home_back.png"
       class="introImage"
       alt=""
       onclick="fading()"
     />
+    <!-- end intro -->
+    <!-- start theme changer -->
+    <div class="theme-changer">
+      <i class="fa-solid fa-gear" id="gear"></i>
+      <ul>
+        <li><i class="fa-solid fa-moon" data-color="black"></i></li>
+        <li><i class="fa-solid fa-sun" data-color="white"></i></li>
+      </ul>
+    </div>
+    <!-- end theme changer -->
+    <!-- start home -->
     <div class="home">
       <div class="container">
         <div class="text">
@@ -100,6 +110,11 @@
       </svg>
     </div>
     <!-- end about -->
+    <!-- start skills -->
+    <div class="skills">
+      <div class="container"></div>
+    </div>
+    <!-- end skills -->
     <!-- start projects -->
     <div class="projects">
       <h1>Projects</h1>
@@ -221,7 +236,6 @@
     </div>
     <!-- js file -->
     <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/jquery.nicescroll.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

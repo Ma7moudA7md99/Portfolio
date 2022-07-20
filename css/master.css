@@ -1,13 +1,17 @@
 :root {
+  --white-color: white;
+  --black-color: black;
   --main-color: #0099ff;
   --second-color: #1a5276;
+  --shadow-color: rgba(0, 0, 0, 10%);
   --typeWriter-speed: 3s;
   --typeWriter-delay: 2s;
   --images-width: 400px;
   --images-phone-width: 250px;
   --section-padding: 100px;
-  --images-shadow: 0 0 20px 20px rgb(0 0 0 / 10%);
+  --images-shadow: 0 0 20px 20px var(--shadow-color);
 }
+/* rgba(255, 255, 255, 0.1) */
 /* scroll bar customize */
 ::-webkit-scrollbar {
   width: 10px;
@@ -41,6 +45,7 @@ html {
 body {
   margin: 0;
   padding: 0;
+  transition: 2s all;
 }
 a {
   text-decoration: none;
@@ -77,6 +82,50 @@ path {
   }
 }
 /* end global rules  */
+/* start theme-changer */
+.theme-changer {
+  position: fixed;
+  top: 10%;
+  left: -30px;
+  background-color: var(--main-color);
+  width: 30px;
+  height: 90px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  z-index: 333;
+  transition: 2s;
+}
+.leftside {
+  left: 0;
+}
+.theme-changer i#gear {
+  text-align: center;
+  position: absolute;
+  font-size: 30px;
+  top: 10px;
+  right: -35px;
+  width: 30px;
+  height: 30px;
+  animation: rotation 2s linear infinite;
+}
+@keyframes rotation {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.theme-changer ul {
+  padding: 0;
+  text-align: center;
+}
+.theme-changer ul li {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+.theme-changer ul li i:hover {
+  color: var(--second-color);
+  cursor: pointer;
+}
+/* end theme-changer */
 /* start home */
 .home {
   position: relative;
@@ -88,16 +137,12 @@ path {
 .img {
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(
-    45deg,
-    var(--second-color),
-    var(--main-color)
-  );
+  background-image: linear-gradient(45deg, #1a5276, #0099ff);
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 1;
+  z-index: 666;
 }
 .introImage {
   width: 400px;
@@ -109,12 +154,12 @@ path {
   transition: 1s;
   transform: translate(-50%, -50%);
   cursor: pointer;
-  z-index: 1;
+  z-index: 777;
 }
 .home .wave {
   z-index: -1;
   position: absolute;
-  bottom: -12.5%;
+  bottom: -9%;
   left: 0;
 }
 /* transition of the img */
@@ -138,6 +183,7 @@ path {
 }
 .text h1::after,
 .text h1::before {
+  transition: 2s all;
   content: "";
   position: absolute;
   top: 0;
@@ -146,12 +192,12 @@ path {
   left: 0;
 }
 .text h1::before {
-  background-color: white;
+  background-color: var(--white-color);
   animation: typeWriter var(--typeWriter-speed) var(--typeWriter-delay) steps(8)
     forwards;
 }
 .text h1::after {
-  background-color: black;
+  background-color: var(--black-color);
   width: 5px;
   animation: typeWriter var(--typeWriter-speed) var(--typeWriter-delay) steps(8)
       forwards,
@@ -165,7 +211,7 @@ path {
 .social-media {
   display: flex;
   gap: 20px;
-  margin-top: 180px;
+  margin-top: 200px;
   z-index: -1;
 }
 .social-media a i {
@@ -361,6 +407,9 @@ path {
 .projects .all .card .txt h2 {
   margin: -5px;
   margin-top: 2px;
+}
+.projects .all .card .txt p {
+  color: black;
 }
 .projects .all .card:hover .txt {
   bottom: 0;
