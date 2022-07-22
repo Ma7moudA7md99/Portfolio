@@ -5,7 +5,7 @@
   --second-color: #1a5276;
   --shadow-color: rgba(0, 0, 0, 10%);
   --typeWriter-speed: 3s;
-  --typeWriter-delay: 2s;
+  --typeWriter-delay: 0.5s;
   --images-width: 400px;
   --images-phone-width: 250px;
   --section-padding: 100px;
@@ -45,7 +45,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  transition: 2s all;
+  transition: 2s;
 }
 a {
   text-decoration: none;
@@ -84,6 +84,7 @@ path {
 /* end global rules  */
 /* start theme-changer */
 .theme-changer {
+  display: none;
   position: fixed;
   top: 10%;
   left: -30px;
@@ -93,7 +94,7 @@ path {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   z-index: 333;
-  transition: 2s;
+  transition: 1s;
 }
 .leftside {
   left: 0;
@@ -207,7 +208,7 @@ path {
 .home .text p {
   transform: translateY(4rem);
   opacity: 0;
-  animation: fadeInUp 2s ease calc(var(--typeWriter-speed) + 2s) forwards;
+  animation: fadeInUp 2s ease calc(var(--typeWriter-speed) + 0.5s) forwards;
 }
 .social-media {
   display: flex;
@@ -334,13 +335,63 @@ path {
   }
 }
 /* end about */
+/* start skills */
+.skills {
+  display: none;
+  padding-top: var(--section-padding);
+  margin-top: 50px;
+}
+.skills .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: space-evenly;
+}
+.skills .container div {
+  width: 400px;
+  height: 30px;
+  background-color: var(--main-color);
+  position: relative;
+}
+.skills .container div span {
+  position: absolute;
+  width: 0;
+  height: inherit;
+  background-color: #1a5276;
+  transition: width 2s linear;
+}
+.skills .container div h2 {
+  width: 80px;
+  position: absolute;
+  top: -20px;
+  left: -23%;
+}
+.skills .container div.powerpoint h2 {
+  left: -39%;
+}
+.skills .container div p {
+  position: absolute;
+  bottom: -35px;
+  right: 5px;
+}
+@media (max-width: 1200px) {
+  .skills .container div h2 {
+    width: fit-content;
+    top: -50px;
+    left: 0;
+  }
+  .skills .container div.powerpoint h2 {
+    left: 0;
+  }
+}
+/* end skills */
 /* start projects */
 .projects {
   position: relative;
   text-align: center;
   display: none;
   margin-top: 50px;
-  padding-top: var(--section-padding);
+  padding-top: 50px;
   padding-bottom: 50px;
 }
 .projects h1 {
