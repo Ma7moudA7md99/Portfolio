@@ -6,6 +6,8 @@ let about = document.querySelector(".about");
 let skills = document.querySelector(".skills");
 let projects = document.querySelector(".projects");
 let contact = document.querySelector(".contact");
+let parent = document.querySelectorAll(".skills .container div");
+let spans = document.querySelectorAll(".skills .container div span");
 function fading() {
   $(backColor).toggle({ width: "0" }, { height: "0" });
   $(img).toggleClass("position");
@@ -16,8 +18,7 @@ function fading() {
   $(skills).toggle("display");
   $(contact).toggle("display");
 }
-//                        20%        40%      60%     80%       100%
-// change theme colors {-Beginner -Moderate -Good -Very Good -Excellent}
+// change theme colors
 $("#gear").on("click", function () {
   $(".theme-changer").toggleClass("leftside");
 });
@@ -39,23 +40,8 @@ $(".theme-changer ul li i").on("click", function () {
 });
 //    20%        40%      60%     80%       100%
 // {-Beginner -Moderate -Good -Very Good -Excellent}
-let parent = document.querySelectorAll(".skills .container div");
-let spans = document.querySelectorAll(".skills .container div span");
-// for (let i = 0; i < parent.length; i++) {
-//   if ($(parent[i]).data("level") == "Excellent") {
-//     $(spans[i]).css("width", "100%");
-//   } else if ($(parent[i]).data("level") == "Very Good") {
-//     $(spans[i]).css("width", "80%");
-//   } else if ($(parent[i]).data("level") == "Good") {
-//     $(spans[i]).css("width", "60%");
-//   } else if ($(parent[i]).data("level") == "Moderate") {
-//     $(spans[i]).css("width", "40%");
-//   } else if ($(parent[i]).data("level") == "Beginner") {
-//     $(spans[i]).css("width", "20%");
-//   }
-// }
 window.onscroll = function () {
-  if (window.scrollY >= skills.offsetTop - 200) {
+  if (window.scrollY >= skills.offsetTop - 300) {
     for (let i = 0; i < parent.length; i++) {
       if (parent[i].dataset.level == "Excellent") {
         spans[i].style.width = "100%";
