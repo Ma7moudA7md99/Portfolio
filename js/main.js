@@ -5,6 +5,7 @@ let home = document.querySelector(".home");
 let about = document.querySelector(".about");
 let skills = document.querySelector(".skills");
 let projects = document.querySelector(".projects");
+let contact = document.querySelector(".contact");
 function fading() {
   $(backColor).toggle({ width: "0" }, { height: "0" });
   $(img).toggleClass("position");
@@ -13,6 +14,7 @@ function fading() {
   $(home).toggle("display");
   $(themChanger).toggle("display");
   $(skills).toggle("display");
+  $(contact).toggle("display");
 }
 //                        20%        40%      60%     80%       100%
 // change theme colors {-Beginner -Moderate -Good -Very Good -Excellent}

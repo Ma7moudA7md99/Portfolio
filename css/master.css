@@ -339,13 +339,52 @@ path {
 .skills {
   display: none;
   padding-top: var(--section-padding);
-  margin-top: 50px;
+  margin-top: 200px;
+  position: relative;
 }
 .skills .container {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   gap: 50px;
   justify-content: space-evenly;
+}
+.skills .container .type {
+  width: fit-content;
+  position: absolute;
+  font-size: 40px;
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%);
+  color: var(--main-color);
+  text-transform: uppercase;
+  letter-spacing: 20px;
+}
+.skills .container .type h1:after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: var(--second-color);
+  border-radius: 50%;
+  border: 5px solid var(--main-color);
+  top: 50%;
+  right: -20%;
+  transform: translate(0, -50%);
+  animation: jump1 0.5s alternate 0.5s infinite;
+}
+.skills .container .type h1:before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background-color: var(--second-color);
+  border-radius: 50%;
+  border: 5px solid var(--main-color);
+  top: 50%;
+  left: -20%;
+  transform: translate(0, -50%);
+  animation: jump1 0.5s alternate infinite;
 }
 .skills .container div {
   width: 400px;
@@ -374,6 +413,10 @@ path {
   bottom: -35px;
   right: 5px;
 }
+.skills svg {
+  position: absolute;
+  bottom: -50%;
+}
 @media (max-width: 1200px) {
   .skills .container div h2 {
     width: fit-content;
@@ -383,6 +426,25 @@ path {
   .skills .container div.powerpoint h2 {
     left: 0;
   }
+  .skills .container .type {
+    font-size: 20px;
+    letter-spacing: 5px;
+    top: -20%;
+  }
+  .skills .container .type h1:after {
+    right: 0;
+  }
+  .skills .container .type h1::before {
+    left: 0;
+  }
+  .skills svg {
+    bottom: -15%;
+  }
+}
+@keyframes jump1 {
+  to {
+    top: 0%;
+  }
 }
 /* end skills */
 /* start projects */
@@ -390,13 +452,13 @@ path {
   position: relative;
   text-align: center;
   display: none;
-  margin-top: 50px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  margin-top: 150px;
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
 }
 .projects h1 {
   position: relative;
-  font-size: 60px;
+  font-size: 100px;
   top: 0;
   left: 50%;
   transform: translate(-50%);
@@ -472,13 +534,14 @@ path {
 }
 .projects svg {
   position: absolute;
-  bottom: 0;
+  bottom: -8%;
   left: 0;
   z-index: -1;
 }
 @media (max-width: 768px) {
   .projects {
     padding-top: 100px;
+    margin-top: 50px;
   }
   .projects .all .card {
     margin-bottom: 10px;
@@ -488,6 +551,7 @@ path {
   }
   .projects h1 {
     letter-spacing: 5px;
+    font-size: 60px;
   }
 }
 @keyframes jump {
@@ -496,3 +560,34 @@ path {
   }
 }
 /* end projects */
+/* start contact */
+.contact {
+  display: none;
+  background-color: var(--main-color);
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+.contact .container {
+  display: flex;
+}
+.contact .info-text {
+  width: 50%;
+  height: 400px;
+  border-radius: 20px;
+  background-color: white;
+}
+.contact .info-text div {
+  position: relative;
+  margin-left: 10%;
+  margin-top: 10%;
+}
+.contact .info-text div i {
+  position: absolute;
+  font-size: 40px;
+}
+.contact .info-text div h1,
+.contact .info-text div p {
+  margin-left: 80px;
+  margin-bottom: 10px;
+}
+/* end contact */
