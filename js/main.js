@@ -28,7 +28,7 @@ $(".theme-changer ul li i").on("click", function () {
     $(":root").css("--black-color", "white");
     $(":root").css("--white-color", "black");
     $("html").css("color", "white"); // text color
-    $(":root").css("--shadow-color", "rgba(255, 255, 255, 0.1)"); // shadow color
+    $(":root").css("--shadow-color", "rgba(255, 255, 255, 0.2)"); // shadow color
     $(":root").css("--second-color", "white");
   } else if ($(this).data("color") == "white") {
     $(":root").css("--black-color", "black");
