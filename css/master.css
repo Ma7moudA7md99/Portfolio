@@ -349,11 +349,11 @@ path {
   justify-content: space-evenly;
 }
 .skills .container .type {
-  width: fit-content;
+  width: 70%;
   position: absolute;
   font-size: 40px;
   top: -50%;
-  left: 50%;
+  left: 55%;
   transform: translate(-50%);
   color: var(--main-color);
   text-transform: uppercase;
@@ -373,7 +373,7 @@ path {
 }
 .skills .container .type h1:after {
   top: 50%;
-  right: -20%;
+  right: -2%;
   animation: jump1 0.5s alternate 0.5s infinite;
 }
 .skills .container .type h1:before {
